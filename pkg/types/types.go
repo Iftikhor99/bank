@@ -4,8 +4,6 @@ type Money int64
 
 type Currency string
 
-type Category string
-
 const (
 	TJS Currency = "TJS"
 	RUB Currency = "RUB"
@@ -15,6 +13,16 @@ const (
 
 type PAN string
 
+type Category string
+
+type Status string
+
+const (
+	StatusOk Status = "OK"
+	StatusFail Status = "FAIL"
+	StatusInProgress Status = "INPROGRESS"
+)
+
 type Card struct {
 	ID int
 	PAN PAN
@@ -23,13 +31,13 @@ type Card struct {
 	Color string
 	Name string
 	Active bool
-	MinBalance Money
 } 
 
 type Payment struct {
 	ID int 
 	Amount Money
 	Category Category
+	Status Status
 }
 
 type PaymentSource struct {
